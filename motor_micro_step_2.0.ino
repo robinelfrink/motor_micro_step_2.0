@@ -1,8 +1,12 @@
 #include <AccelStepper.h>
 
 // Define stepper pins
-#define STEP_PIN 8      // Step pin
-#define DIR_PIN 9       // Direction pin
+#define STEP1_PIN 8      // Step pin
+#define DIR1_PIN 9       // Direction pin
+#define STEP2_PIN 10
+#define DIR2_PIN 11
+#define STEP3_PIN 12
+#define DIR3_PIN 13
 
 // Microstepping control pins
 #define M0_PIN 7
@@ -15,7 +19,9 @@ const float stepsPerRevolution = 200;
 int microstepSetting = 32;
 
 // AccelStepper instance in driver mode
-AccelStepper stepper(AccelStepper::DRIVER, STEP_PIN, DIR_PIN);
+AccelStepper stepper1(AccelStepper::DRIVER, STEP1_PIN, DIR1_PIN);
+AccelStepper stepper2(AccelStepper::DRIVER, STEP2_PIN, DIR2_PIN);
+AccelStepper stepper3(AccelStepper::DRIVER, STEP3_PIN, DIR3_PIN);
 
 void setup() {
   // Set microstepping pins as outputs
@@ -35,12 +41,17 @@ void setup() {
   // Calculate and set the desired and max speed in steps per second
   float speedStepsPerSec = (microstepSetting * stepsPerRevolution*desiredRPM) / 60.0;
   float Max_Speed_StepsPerSec = microstepSetting * stepsPerRevolution * MaxRPM / 60; // Specify max speed in steps/sec (converted from RPM)
-  stepper.setMaxSpeed(Max_Speed_StepsPerSec);
-  stepper.setSpeed(speedStepsPerSec);
+  stepper1.setMaxSpeed(Max_Speed_StepsPerSec);
+  stepper1.setSpeed(speedStepsPerSec);
+  stepper2.setMaxSpeed(Max_Speed_StepsPerSec);
+  stepper2.setSpeed(speedStepsPerSec);
+  stepper3.setMaxSpeed(Max_Speed_StepsPerSec);
+  stepper3.setSpeed(speedStepsPerSec);
 }
 
 void loop() {
   // Run the motor at constant speed
-  
-  stepper.runSpeed();
+  stepper1.runSpeed();
+  stepper2.runSpeed();
+  stepper3.runSpeed();
 }
