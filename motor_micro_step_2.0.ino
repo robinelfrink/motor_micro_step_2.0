@@ -60,21 +60,21 @@ void setup() {
 void loop() {
 
   // Motor1 on/off
-  secondsInInterval = millis() % (MOTOR1_ON + MOTOR1_OFF)
+  secondsInInterval = (millis()*1000) % (MOTOR1_ON + MOTOR1_OFF)
   if secondsInInterval < MOTOR1_ON {
     // Run the motor at constant speed
     stepper1.runSpeed();
   }
 
   // Motor2 on/off
-  secondsInInterval = millis() % (MOTOR2_ON + MOTOR2_OFF)
+  secondsInInterval = (millis()*1000) % (MOTOR2_ON + MOTOR2_OFF)
   if secondsInInterval < MOTOR2_ON {
     // Run the motor at constant speed
     stepper2.runSpeed();
   }
 
   // Motor3 on/off
-  secondsInInterval = millis() % (MOTOR3_ON + MOTOR3_OFF)
+  secondsInInterval = (millis()*1000) % (MOTOR3_ON + MOTOR3_OFF)
   if secondsInInterval < MOTOR3_ON {
     // Run the motor at constant speed
     stepper3.runSpeed();
