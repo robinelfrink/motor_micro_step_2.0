@@ -13,6 +13,14 @@
 #define M1_PIN 6
 #define M2_PIN 5
 
+// On/off timers in seconds
+#define MOTOR1_ON 14
+#define MOTOR1_OFF 3
+#define MOTOR2_ON 8
+#define MOTOR2_OFF 2
+#define MOTOR3_ON 10
+#define MOTOR3_OFF 1
+
 // Steps per revolution for the motor
 const float stepsPerRevolution = 200;
 // Microstepping multiplier (1, 2, 4, 8, 16, or 32)
@@ -50,8 +58,26 @@ void setup() {
 }
 
 void loop() {
-  // Run the motor at constant speed
-  stepper1.runSpeed();
-  stepper2.runSpeed();
-  stepper3.runSpeed();
+
+  // Motor1 on/off
+  secondsInInterval = millis() % (MOTOR1_ON + MOTOR1_OFF)
+  if secondsInInterval < MOTOR1_ON {
+    // Run the motor at constant speed
+    stepper1.runSpeed();
+  }
+
+  // Motor2 on/off
+  secondsInInterval = millis() % (MOTOR2_ON + MOTOR2_OFF)
+  if secondsInInterval < MOTOR2_ON {
+    // Run the motor at constant speed
+    stepper2.runSpeed();
+  }
+
+  // Motor3 on/off
+  secondsInInterval = millis() % (MOTOR3_ON + MOTOR3_OFF)
+  if secondsInInterval < MOTOR3_ON {
+    // Run the motor at constant speed
+    stepper3.runSpeed();
+  }
+
 }
