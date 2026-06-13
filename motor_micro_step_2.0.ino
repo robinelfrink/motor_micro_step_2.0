@@ -47,14 +47,20 @@ void setup() {
   float MaxRPM = 60; // Set max speed in rpm (revolutions per minute)
 
   // Calculate and set the desired and max speed in steps per second
-  float speedStepsPerSec = (microstepSetting * stepsPerRevolution*desiredRPM) / 60.0;
-  float Max_Speed_StepsPerSec = microstepSetting * stepsPerRevolution * MaxRPM / 60; // Specify max speed in steps/sec (converted from RPM)
-  stepper1.setMaxSpeed(Max_Speed_StepsPerSec);
-  stepper1.setSpeed(speedStepsPerSec);
-  stepper2.setMaxSpeed(Max_Speed_StepsPerSec);
-  stepper2.setSpeed(speedStepsPerSec);
-  stepper3.setMaxSpeed(Max_Speed_StepsPerSec);
-  stepper3.setSpeed(speedStepsPerSec);
+  float speedStepsPerSec1 = (microstepSetting * stepsPerRevolution*desiredRPM) / 60.0;
+  float Max_Speed_StepsPerSec1 = microstepSetting * stepsPerRevolution * MaxRPM / 60; // Specify max speed in steps/sec (converted from RPM)
+  stepper1.setMaxSpeed(Max_Speed_StepsPerSec1);
+  stepper1.setSpeed(speedStepsPerSec1);
+
+  float speedStepsPerSec2 = (microstepSetting * stepsPerRevolution*desiredRPM) / 60.0;
+  float Max_Speed_StepsPerSec2 = microstepSetting * stepsPerRevolution * MaxRPM / 60; // Specify max speed in steps/sec (converted from RPM)
+  stepper2.setMaxSpeed(Max_Speed_StepsPerSec2);
+  stepper2.setSpeed(speedStepsPerSec2);
+
+  float speedStepsPerSec3 = (microstepSetting * stepsPerRevolution*desiredRPM) / 60.0;
+  float Max_Speed_StepsPerSec3 = microstepSetting * stepsPerRevolution * MaxRPM / 60; // Specify max speed in steps/sec (converted from RPM)
+  stepper3.setMaxSpeed(Max_Speed_StepsPerSec3);
+  stepper3.setSpeed(speedStepsPerSec3);
 }
 
 void loop() {
